@@ -1,0 +1,29 @@
+[GLOBAL]
+pants_version = "2.20.0"
+backend_packages = [
+  'pants.backend.build_files.fmt.black',
+  "pants.backend.codegen.protobuf.lint.buf",
+  "pants.backend.codegen.protobuf.python",
+  'pants.backend.python',
+  "pants.backend.python.lint.docformatter",
+  'pants.backend.python.lint.black',
+  'pants.backend.python.lint.flake8',
+  'pants.backend.python.lint.isort',
+  'pants.backend.python.typecheck.mypy',
+]
+
+[source]
+root_patterns = [
+  '/src/python',
+  '/src/protobuf',
+]
+
+[anonymous-telemetry]
+enabled = 'false'
+
+[python-protobuf]
+mypy_plugin = true
+
+[python]
+interpreter_constraints = ["CPython>=3.8,<3.11"]
+enable_resolves = true
